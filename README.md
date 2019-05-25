@@ -42,9 +42,16 @@ Raspi User: pi
 
 Raspi Passwort: raspberry
 
-# Raspi aktualisieren
-Raspi Update: sudo apt-get update
-Raspi-Ugrade: sudo apt-get dist-upgrade
+# Raspi aktualisieren / Software installieren
+Raspi Update: 
+```
+sudo apt-get update
+sudo apt-get dist-upgrade
+```
+Software (GIT) installieren:
+```
+sudo apt install git
+```
 
 # Installation des Sensors: DS18B20
 Zuerst lasse ich mir die vom System geladenen Module anzeigen.
