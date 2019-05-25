@@ -99,6 +99,8 @@ Mit dem folgenden Befehl kannst du dir nun den Inhalt der Datei “w1_slave” m
 cat /sys/bus/w1/devices/28-000005d2e508/w1_slave
 ```
 
+# Software installieren und starten
+
 Repository clonen (Code lokal auf den Raspi kopieren):
 ```
 git clone https://github.com/ThoEngel/raspi-temp-server.git
