@@ -51,13 +51,15 @@ Zuerst lasse ich mir die vom System geladenen Module anzeigen.
 ```
 sudo lsmod
 ```
-Die ntwendigen Module: wire, w1-gpio und w1-therm sind nicht vorhanden
+Die notwendigen Module: wire und w1-gpio sind nicht vorhanden
 
 
 Als nächstes erweitern wir die notwendigen Dateien für die automatische Aktivierung des Buses und des Sensors nach einem Neustart.
-ist die Datei config.txt für das Laden der Module zuständig. Diese rufst du mit dem Befehl
+Die Datei config.txt ist für das Laden der Module zuständig. Diese rufst du mit dem Befehl
 ```
 sudo nano /boot/config.txt
+```
+Und weiterst die Datei um die folgenden Zeilen:
 ```
 # Temperatursensor an 1-Wire
 dtoverlay=w1-gpio
@@ -73,6 +75,7 @@ Nach dem Neustart kannst du mit dem Befehl
 sudo lsmod
 ```
 die korrekte Aktivierung des 1-Wire Bus überprüfen.
+Die notwendigen Module: wire und w1-gpio solten jetzt vorhanden sein.
 
 Das System schreibt immer den aktuellen Wert des Sensors in eine Datei. Diese befindet sich in einem durch die Sensor-Kennung bestimmten Verzeichnis. Dieses findest du, indem du mit
 ```
