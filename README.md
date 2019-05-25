@@ -47,6 +47,10 @@ Raspi Update: sudo apt-get update
 Raspi-Ugrade: sudo apt-get dist-upgrade
 
 # Installation des Sensors: DS18B20
+Folgende Befehle werden über das Terminal eingegeben. Zuerst lasse ich mir die vom System geladenen Module anzeigen.
+```
+sudo lsmod
+```
 Aktivierung des 1-Wire Buses:
 ```
 sudo modprobe wire 
