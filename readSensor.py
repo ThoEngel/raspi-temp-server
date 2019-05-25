@@ -1,17 +1,26 @@
 !/usr/bin/python
-# coding=utf-8
-# messprogramm.py
-#----------------
  
 import os, sys, time
- 
- 
-def aktuelleTemperatur():
-      
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return 'Hello boys and girls'
+
+@app.route('/gettemp')
+def gettemp():
+    temp = readTemp()
+	TextStr = "Tempertur: " + float2str(temp) + " °C"
+    return TextStr
+
+def readTemp():
     # 1-wire Slave Datei lesen
-    file = open('/sys/bus/w1/devices/28-000005d2e508/w1_slave')
-    filecontent = file.read()
-    file.close()
+    #file = open('/sys/bus/w1/devices/28-000005d2e508/w1_slave')
+    #filecontent = file.read()
+    #file.close()
+    filecontent="36.71\n"
  
     # Temperaturwerte auslesen und konvertieren
     stringvalue = filecontent.split("\n")[1].split(" ")[9]
@@ -20,20 +29,11 @@ def aktuelleTemperatur():
     # Temperatur ausgeben
     rueckgabewert = '%6.2f' % temperature 
     return(rueckgabewert)
- 
-schleifenZaehler = 0
-schleifenAnzahl = 20
-schleifenPause = 1
- 
-print "Temperaturabfrage für ", schleifenAnzahl,
-      " Messungen alle ", schleifenPause ," Sekunden gestartet"
- 
-while schleifenZaehler <= schleifenAnzahl:
-    messdaten = aktuelleTemperatur()
-    print "Aktuelle Temperatur : ", messdaten, "°C",
-    "in der ", schleifenZaehler, ". Messabfrage"
-    time.sleep(schleifenPause)
-    schleifenZaehler = schleifenZaehler + 1
-    
- 
-print "Temperaturabfrage beendet"
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0')
+
+    while 1:	
+        temp = readTemp()
+        print("Aktuelle Temperatur : ", temp, "°C")
+        time.sleep(10)

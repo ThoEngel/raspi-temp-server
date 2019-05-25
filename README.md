@@ -51,6 +51,8 @@ sudo apt-get dist-upgrade
 Software (GIT) installieren:
 ```
 sudo apt install git
+sudo apt-get install python3-pip
+sudo pip3 install flask
 ```
 
 # Installation des Sensors: DS18B20
