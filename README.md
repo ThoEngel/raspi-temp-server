@@ -1,5 +1,4 @@
-# raspi-temp-server
-raspi-temp-server
+# Raspberry Pi Web Server zur Temperaturanzeige
 
 
 # Image auf SD Karte flashen:
@@ -30,7 +29,7 @@ network={
 }
 ```
 
-# Erste Start
+# Erster Start
 SD Karte in Raspi reinstecken und einschalten.
 Im WLAN Router nach dem Raspi suchen und die IP Adresse (ip-adresse) ermitteln sowie dem dem Raspi immer die gleiche IPv4-Adresse zuweisen.
 
@@ -42,13 +41,13 @@ Raspi User: pi
 
 Raspi Passwort: raspberry
 
-# Raspi aktualisieren / Software installieren
+# Raspi aktualisieren
 Raspi Update: 
 ```
 sudo apt-get update
 sudo apt-get dist-upgrade
 ```
-Software (GIT) installieren:
+# Software installieren:
 ```
 sudo apt install git
 sudo apt-get install python3-pip
@@ -62,13 +61,12 @@ sudo lsmod
 ```
 Die notwendigen Module: wire und w1-gpio sind nicht vorhanden
 
-
 Als nächstes erweitern wir die notwendigen Dateien für die automatische Aktivierung des Buses und des Sensors nach einem Neustart.
-Die Datei config.txt ist für das Laden der Module zuständig. Diese rufst du mit dem Befehl
+Die Datei config.txt ist für das Laden der Module zuständig. Diese rufst du mit dem Befehl auf
 ```
 sudo nano /boot/config.txt
 ```
-Und weiterst die Datei um die folgenden Zeilen:
+und weiterst die Datei um die folgenden Zeilen:
 ```
 # Temperatursensor an 1-Wire
 dtoverlay=w1-gpio
