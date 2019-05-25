@@ -2,14 +2,12 @@
 raspi-temp-server
 
 # Downloads:
-
 Betriebssystem vom Raspi:
 [Raspbian Stretch Lite](https://www.raspberrypi.org/downloads/raspbian/).
 
-
 # Image auf SD Karte flashen:
-- mittels SDFormatter die SD-Karte formatieren
-- mittels balenaEtcher die SD Karte mit dem Image flashen
+- mittels [SD Formatter](https://www.chip.de/downloads/SD-Formatter_72605634.html) die SD-Karte formatieren
+- mittels [balenaEtcher](https://www.balena.io/etcher/) die SD Karte mit dem Raspi-Image flashen
 - eine leere Datei ssh ins Hauptverzeichnis der SD Karte erstellen
 - eine Datei wpa_supplicant.conf ind Hauptverzeichnis der SD Karte erstellen (beinhalt die WLAN Konfigration)
 
@@ -19,20 +17,30 @@ country=DE  #omit if US
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 network={
-       ssid=""
-       psk=""
+       ssid="Name WLAN1"
+       psk="password"
        key_mgmt=WPA-PSK
-       id_str="Musberg"
+       id_str="location1"
        priority=1
 }
 network={
-     ssid=""
-       psk=""
+     ssid="Name WLAN2"
+       psk="password"
        key_mgmt=WPA-PSK
-       id_str="Woelfershausen"
+       id_str="location2"
        priority=2
 }
 ```
 
+# Erste Start
+SD Karte in Raspi reinstecken und einschalten.
+Im WLAN Router nach der Raspi suchen und die IP Adresse (ip-adresse) ermitteln sowie dem dem Raspi immer die gleiche IPv4-Adresse zuweisen.
 
-The default user is pi, and the password is raspberry
+Windows Kommandozeile mit "cmd" öffnen.
+
+Mit Raspi verbinden: ssh pi@ip-adresse
+
+Raspi User: pi
+Raspi Passwort: raspberry
+
+
