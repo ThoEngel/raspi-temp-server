@@ -59,17 +59,11 @@ ist die Datei config.txt für das Laden der Module zuständig. Diese rufst du mi
 ```
 sudo nano /boot/config.txt
 ```
-auf und hängst folgende zwei Zeilen an, der Kommentar ist optional.
-wire
-w1-gpio
-w1-therm
-```
-
-```
 # Temperatursensor an 1-Wire
 dtoverlay=w1-gpio
 gpiopin=4
 ```
+
 Danach führst du einen Neustart des Raspberry Pi aus.
 ```
 sudo reboot
