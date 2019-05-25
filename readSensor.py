@@ -10,7 +10,7 @@ def index():
 @app.route('/gettemp')
 def gettemp():
     temp = readTemp()
-	TextStr = "Tempertur: " + float2str(temp) + " °C"
+    TextStr = "Tempertur: " + float2str(temp) + " °C"
     return TextStr
 
 def readTemp():
