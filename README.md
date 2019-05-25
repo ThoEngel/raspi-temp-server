@@ -100,3 +100,24 @@ Mit dem folgenden Befehl kannst du dir nun den Inhalt der Datei “w1_slave” m
 ```
 cat /sys/bus/w1/devices/28-000005d2e508/w1_slave
 ```
+
+Repository clonen (Code lokal auf den Raspi kopieren):
+```
+git clone https://github.com/ThoEngel/raspi-temp-server.git
+```
+
+In das Verzeichnis wechseln
+```
+cd raspi-temp-server
+```
+
+Python Skript starten
+```
+sudo python3 readSensor.py
+```
+
+Webseite auf dem Rechner aufrufen
+```
+http://ip-adress:5000/gettemp
+```
+
