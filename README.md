@@ -122,11 +122,11 @@ http://ip-adress:5000/gettemp
 ```
 
 # Autostart des Skripts
-Damit bei dem Start des Raspi der Webserver automatisch gestartet wird, ist das Python Skript automatisch zu starten.
+Für Autostart ist das folgenden File zu editieren, um das Python Skript automatisch zu starten:
 ```
 sudo nano /etc/rc.local
 ```
-Diese Zeile ist im File zu ergänzen. Pfad (folder) ist entsprechend anzupassen:
+Diese folgende Zeile ist im File (rc.local) zu ergänzen. Pfad (folder) ist entsprechend anzupassen:
 ```
 sudo python3 \folder\readSensor.py
 ```
