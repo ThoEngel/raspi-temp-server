@@ -13,6 +13,20 @@ def gettemp():
     TextStr = "Temperatur: " + str(temp) + " °C"
     return TextStr
 
+@app.route('/gethtmltemp')
+def gethtmltemp():
+    temp = readTemp()
+    return '''
+<html>
+    <head>
+        <meta http-equiv="refresh" content="10">
+        <title>My Temperature</title>
+    </head>
+    <body>
+        <h1>Temperatur: ''' + temp + '''°C</h1>
+    </body>
+</html>'''
+
 def readTemp():
     # 1-wire Slave Datei lesen
     file = open('/sys/bus/w1/devices/28-000005d2e508/w1_slave')
