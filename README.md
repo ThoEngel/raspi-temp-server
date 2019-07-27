@@ -116,8 +116,13 @@ Python Skript starten
 sudo python3 readSensor.py
 ```
 
-Webseite auf dem Rechner aufrufen
+Statische Webseite auf dem Rechner aufrufen
 ```
 http://ip-adress:5000/gettemp
+```
+
+Dynamische Webseite auf dem Rechner aufrufen
+```
+http://ip-adress:5000
 ```
 
