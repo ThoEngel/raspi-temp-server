@@ -16,7 +16,7 @@ def gettemp():
 
 @app.route( "/getdyntemp" )
 def getdyntemp():
-    value = round( random.random() *100,1)
+    value = readTemp()
     return jsonify( {"getdyntemp": value} )
 
 def readTemp():
