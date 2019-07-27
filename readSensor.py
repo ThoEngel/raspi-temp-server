@@ -1,17 +1,23 @@
 import os, sys, time
-from flask import Flask
+from flask import Flask, jsonify, render_template
+import random
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route( "/" )
 def index():
-    return 'Hello boys and girls'
+    return app.send_static_file('index.html')
 
 @app.route('/gettemp')
 def gettemp():
     temp = readTemp()
-    TextStr = "Temperatur: " + str(temp) + " °C"
-    return TextStr
+    TextStr = "Temperatur: " + str(temp) + "C"
+    return(TextStr)
+
+@app.route( "/getdyntemp" )
+def getdyntemp():
+    value = round( random.random() *100,1)
+    return jsonify( {"getdyntemp": value} )
 
 def readTemp():
     # 1-wire Slave Datei lesen
@@ -28,4 +34,4 @@ def readTemp():
     return(rueckgabewert)
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0',port=81)
